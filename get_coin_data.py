@@ -31,7 +31,7 @@ def get_day_coin_data(fsym, tsym="USD", limit="365"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/v2/histoday?"
+        "https://min-api.cryptocompare.com/data/histoday?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -44,7 +44,7 @@ def get_day_coin_data(fsym, tsym="USD", limit="365"):
     res_json = res.json()
     data = res_json["Data"]
     # write required fields into csv
-    with open(fsym.lower() + "_prices.csv", mode="a") as f:
+    with open(fsym.lower() + "_day_prices.csv", mode="a") as f:
         file_writer = csv.writer(
             f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
         )
@@ -80,7 +80,7 @@ def get_hour_coin_data(fsym, tsym="USD", limit="8760"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/v2/histohour?"
+        "https://min-api.cryptocompare.com/data/histohour?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -93,7 +93,7 @@ def get_hour_coin_data(fsym, tsym="USD", limit="8760"):
     res_json = res.json()
     data = res_json["Data"]
     # write required fields into csv
-    with open(fsym.lower() + "_prices.csv", mode="a") as f:
+    with open(fsym.lower() + "_hour_prices.csv", mode="a") as f:
         file_writer = csv.writer(
             f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
         )
@@ -129,7 +129,7 @@ def get_min_coin_data(fsym, tsym="USD", limit="525600"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/v2/histominute?"
+        "https://min-api.cryptocompare.com/data/histominute?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -143,7 +143,7 @@ def get_min_coin_data(fsym, tsym="USD", limit="525600"):
     data = res_json["Data"]
 
     # write required fields into csv
-    with open(fsym.lower() + "_prices.csv", mode="a") as f:
+    with open(fsym.lower() + "_minute_prices.csv", mode="a") as f:
         file_writer = csv.writer(
             f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
         )
