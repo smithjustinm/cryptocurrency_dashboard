@@ -23,3 +23,7 @@ print("Done getting price data for DOGE. See doge_prices.csv for results")
 # Populate ADA prices in USD
 get_day_coin_data("ADA")
 print("Done getting price data for ADA. See ada_prices.csv for results")
+
+# Populate BTC prices in USD by minute
+# get_min_coin_data("BTC", limit="1440")
+# print("Done getting price data for BTC. See btc_minute_prices.csv for results")

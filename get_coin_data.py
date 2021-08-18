@@ -31,7 +31,7 @@ def get_day_coin_data(fsym, tsym="USD", limit="365"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/histoday?"
+        "https://min-api.cryptocompare.com/data/v2/histoday?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -42,7 +42,7 @@ def get_day_coin_data(fsym, tsym="USD", limit="365"):
     )
     res = requests.get(URL)
     res_json = res.json()
-    data = res_json["Data"]
+    data = res_json["Data"]["Data"]
     # write required fields into csv
     with open(fsym.lower() + "_day_prices.csv", mode="a") as f:
         file_writer = csv.writer(
@@ -80,7 +80,7 @@ def get_hour_coin_data(fsym, tsym="USD", limit="8760"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/histohour?"
+        "https://min-api.cryptocompare.com/data/v2/histohour?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -91,7 +91,7 @@ def get_hour_coin_data(fsym, tsym="USD", limit="8760"):
     )
     res = requests.get(URL)
     res_json = res.json()
-    data = res_json["Data"]
+    data = res_json["Data"]["Data"]
     # write required fields into csv
     with open(fsym.lower() + "_hour_prices.csv", mode="a") as f:
         file_writer = csv.writer(
@@ -129,7 +129,7 @@ def get_min_coin_data(fsym, tsym="USD", limit="525600"):
     """
 
     URL = (
-        "https://min-api.cryptocompare.com/data/histominute?"
+        "https://min-api.cryptocompare.com/data/v2/histominute?"
         + "fsym="
         + fsym
         + "&tsym="
@@ -140,7 +140,7 @@ def get_min_coin_data(fsym, tsym="USD", limit="525600"):
     )
     res = requests.get(URL)
     res_json = res.json()
-    data = res_json["Data"]
+    data = res_json["Data"]["Data"]
 
     # write required fields into csv
     with open(fsym.lower() + "_minute_prices.csv", mode="a") as f:
